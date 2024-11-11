@@ -7,17 +7,20 @@ public class CeaserCipher extends Encryption{
 
     @Override
     public String encrypt(String text) {
-        String result = "";
+        String result = ""; // Zurrückzugebene Zechenkette
 
         for (int i = 0; i < text.length(); i++) {
-           int asciiCode = text.charAt(i);
-           asciiCode = this.bound(asciiCode + key, 97, 122);
+            // für i = 0 bis länge des Eingabetextes
 
-           result = result + (char)asciiCode;
-           System.out.println(asciiCode);
+            int asciiCode = text.charAt(i); // Zeichen an stelle i
+
+            // Verschiebung des AsciiCodes um den Schlüssel
+            // und binden des wertes zwischen 97 - 122
+            asciiCode = this.bound(asciiCode + key, 97, 122);
+
+            result = result + (char)asciiCode;
+            // finale Zeichenkette "bauen"
         }
-
-
         return result;
     }
 
