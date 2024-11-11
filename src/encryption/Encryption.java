@@ -4,7 +4,7 @@ public abstract class Encryption {
     protected int key;
 
     public Encryption(int key) {
-        this.key = key % 25;
+        this.key = key;
     }
 
     protected int bound(int value, int low, int high)  {
