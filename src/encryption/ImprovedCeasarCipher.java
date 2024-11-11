@@ -34,7 +34,19 @@ public class ImprovedCeasarCipher extends Encryption{
     }
 
     @Override
-    public String decrypt(String text) {
-        return "not yet implemented";
+    public String decrypt(String encryptedText) {
+        String result = "";
+
+        Random rand = new Random(key);
+
+        for (int i = 0; i < encryptedText.length(); i++) {
+            int asciiCode = encryptedText.charAt(i);
+            asciiCode = this.bound(asciiCode + 25 - rand.nextInt(26), 97, 122);
+
+            result = result + (char)asciiCode;
+
+        }
+
+        return result;
     }
 }
